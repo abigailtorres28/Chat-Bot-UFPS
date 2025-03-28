@@ -1,0 +1,6 @@
+quart
+langchain
+langchain_community
+faiss-cpu
+openai
+python-dotenv
