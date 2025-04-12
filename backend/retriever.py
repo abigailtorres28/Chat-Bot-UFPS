@@ -7,7 +7,7 @@ from langchain_chroma import Chroma  # Usamos Chroma en lugar de FAISS
 load_dotenv()
 
 # Ruta de la base de datos vectorial
-VECTOR_DB_DIR = "backend/vector_db/"
+VECTOR_DB_DIR = "vector_db/"
 
 # Cargar la base de datos vectorial
 openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -29,3 +29,7 @@ def retrieve_context(query, k=3):
     else:
         print(f"✅ Se encontraron {len(docs)} documentos relevantes.")
     return "\n\n".join([doc.page_content for doc in docs])
+
+if vector_store._collection.count() == 0:
+    print("⚠️ La base de datos vectorial está vacía. ¿Seguro que cargaste los documentos?")
+

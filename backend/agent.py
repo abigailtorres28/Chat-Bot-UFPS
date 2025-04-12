@@ -39,7 +39,7 @@ async def generate_response_node(state: ChatbotState):
         response = await llm.ainvoke(messages)  # Llamada asincrónica
         response_text = response.content.strip() if response and response.content else "El modelo no generó una respuesta válida."
         
-        print(f"Respuesta generada: {response_text}")
+        #print(f"Respuesta generada: {response_text}")
         return {"response": response_text}
     except Exception as e:
         print(f"Error en la generación de respuesta: {e}")
