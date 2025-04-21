@@ -21,7 +21,7 @@ async def retrieve_context_node(state: ChatbotState):
         context = retrieve_context(state["query"])  
         if not context:
             raise ValueError("No se encontró contexto relevante.")
-        print(f"Contexto recuperado: {context}")
+        #print(f"Contexto recuperado: {context}")
         return {"context": context}
     except Exception as e:
         print(f"Error en la recuperación del contexto: {e}")
@@ -71,9 +71,3 @@ async def chatbot_agent(query: str):
         print(f"Error general en el chatbot: {e}")
         return "Lo siento, ocurrió un error inesperado."
 
-# Ejemplo de uso
-if __name__ == "__main__":
-    import asyncio
-    query = "¿Cuándo inician las matrículas?"
-    response = asyncio.run(chatbot_agent(query))  # Ejecutar asincrónicamente en el script principal
-    print(f"Chatbot: {response}")
